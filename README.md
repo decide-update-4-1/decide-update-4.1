@@ -22,7 +22,7 @@ entre ellos. Para conseguir esto, los subsistemas se conectarán entre si median
 Este proyecto Django estará dividido en apps (subsistemas y proyecto base), donde cualquier app podrá ser reemplazada individualmente.
 
 Gateway
--------
+---------
 
 Para ofrecer un punto de entrada conocido para todos los subsistemas
 existe el llamado **gateway** que no es más que una ruta disponible
