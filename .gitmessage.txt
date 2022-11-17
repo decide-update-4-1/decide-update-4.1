@@ -2,8 +2,6 @@ tipo: asunto
 
 cuerpo
 
-### BORRAR TODOS LOS COMENTARIOS ANTES DEL COMMIT
-
 ### tipo
 # feat (nueva funcionalidad)
 # fix (corrección de bugs)
