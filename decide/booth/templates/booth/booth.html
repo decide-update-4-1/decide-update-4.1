@@ -10,6 +10,7 @@
 {% endblock %}
 
 {% block content %}
+
     <div id="app-booth">
         <!-- Navbar -->
         <b-navbar type="dark" variant="secondary">
@@ -86,28 +87,30 @@
     <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
 
     <script>
+        const { createApp } = Vue
         var voting = {{voting|safe}};
-        var app = new Vue({
+        createApp({
             delimiters: ['[[', ']]'],
-            el: '#app-booth',
-            data: {
-                keybits: {{ KEYBITS }},
-                voting: voting,
-                selected: "",
-                signup: true,
-                alertShow: false,
-                alertMsg: "",
-                alertLvl: "info",
-                token: null,
-                user: null,
-                form: {
-                    username: '',
-                    password: ''
-                },
-                bigpk: {
-                    p: BigInt.fromJSONObject(voting.pub_key.p.toString()),
-                    g: BigInt.fromJSONObject(voting.pub_key.g.toString()),
-                    y: BigInt.fromJSONObject(voting.pub_key.y.toString()),
+            data() {
+                return {
+                    voting: voting,
+                    selected: "",
+                    signup: true,
+                    alertShow: false,
+                    alertMsg: "",
+                    alertLvl: "info",
+                    token: null,
+                    user: null,
+                    form: {
+                        username: '',
+                        password: ''
+                    },
+                    bigpk: {
+                        p: BigInt.fromJSONObject(voting.pub_key.p.toString()),
+                        g: BigInt.fromJSONObject(voting.pub_key.g.toString()),
+                        y: BigInt.fromJSONObject(voting.pub_key.y.toString()),
+                    },
+                    keybits: {{ KEYBITS }}
                 }
             },
             beforeMount() {
@@ -207,7 +210,7 @@
                     this.alertShow = true;
                 }
             },
-        })
+        }).mount('#app-booth')
     </script>
 </body>
 {% endblock %}
