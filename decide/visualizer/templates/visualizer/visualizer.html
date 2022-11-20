@@ -4,17 +4,18 @@
 {% block extrahead %}
     <link type="text/css" rel="stylesheet"
          href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
-    <link type="text/css" rel="stylesheet"
-         href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
     <link type="text/css" rel="stylesheet" href="{% static "booth/style.css" %}" />
 {% endblock %}
 
 {% block content %}
     <div id="app-visualizer">
         <!-- Navbar -->
-        <b-navbar type="dark" variant="secondary">
-            <b-navbar-brand tag="h1">Decide</b-navbar-brand>
-        </b-navbar>
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+                <h1 class="navbar-brand">Decide</h1>
+            </div>
+        </nav>
+          
 
         <div class="voting container">
             <h1>[[ voting.id ]] - [[ voting.name ]]</h1>
@@ -50,17 +51,19 @@
     <!-- Vuejs -->
     <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
-    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+    <script src="https://unpkg.com/bootstrap@5.2.2/dist/js/bootstrap.js"></script>
 
     <script>
         var voting = {{voting|safe}};
-        var app = new Vue({
+        const { createApp } = Vue
+        createApp({
             delimiters: ['[[', ']]'],
-            el: '#app-visualizer',
-            data: {
-                voting: voting
+            data() {
+                return {
+                    voting: voting
+                }
             }
-        })
+        }).mount('#app-visualizer')
     </script>
 </body>
 {% endblock %}
