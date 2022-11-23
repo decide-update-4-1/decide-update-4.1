@@ -30,7 +30,7 @@ class StoreView(generics.ListAPIView):
         """
 
         vid = request.data.get('voting')
-        voting = mods.get('voting', params={'id': vid})
+        voting = mods.get('voting', pathvariable={'id': vid})
         if not voting or not isinstance(voting, list):
             # print("por aqui 35")
             return Response({}, status=status.HTTP_401_UNAUTHORIZED)
