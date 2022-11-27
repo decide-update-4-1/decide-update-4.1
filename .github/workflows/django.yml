@@ -12,7 +12,7 @@ jobs:
 
     services:
       postgres:
-        image: postgres:11.18
+        image: postgres:11.18-bullseye
         env:
           POSTGRES_USER: decide
           POSTGRES_PASSWORD: decide
