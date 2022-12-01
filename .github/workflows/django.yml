@@ -1,6 +1,9 @@
 name: Python application
 
-on: [push]
+on:
+  push:
+    branches:
+      - develop
 
 jobs:
   build:
@@ -9,7 +12,7 @@ jobs:
 
     services:
       postgres:
-        image: postgres:10.8
+        image: postgres:11.18-bullseye
         env:
           POSTGRES_USER: decide
           POSTGRES_PASSWORD: decide
