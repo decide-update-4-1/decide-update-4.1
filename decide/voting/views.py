@@ -15,11 +15,11 @@ class VotingView(generics.ListCreateAPIView):
     queryset = Voting.objects.all()
     serializer_class = VotingSerializer
     filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
-    filter_fields = ('id', )
+    filterset_fields = ('id', )
 
     def get(self, request, *args, **kwargs):
         idpath = kwargs.get('voting_id')
-        self.queryset = Voting.objects.all().filter(id=idpath)
+        self.queryset = Voting.objects.all()
         version = request.version
         if version not in settings.ALLOWED_VERSIONS:
             version = settings.DEFAULT_VERSION
