@@ -21,12 +21,12 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item" v-if="!signup">
-                        <button v-on:click="decideLogout" class="btn btn-secondary">{% trans "logout" %}</button>
+                        <button v-on:click="decideLogout" class="btn btn-secondary">{% trans "Logout" %}</button>
                     </li>
                     <li class="nav-item" v-if="signup">
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#registerModal">
-                            Register
+                            Login
                         </button>
                     </li>
                 </ul>
@@ -54,15 +54,23 @@
     </div>
 
     <div class="voting" >
-        <h1>[[ voting.id ]] - [[ voting.name ]]</h1>
-
-        <div class="container-fluid" v-if="signup">
+        <div class="alert alert-primary d-flex align-items-center me-5" role="alert" :variant="alertLvl" dismissible v-if="signup">
+            {% comment %} <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg> {% endcomment %}
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+                <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+            </svg>
+            <div class="ms-2">
+                ¡Debe iniciar sesión para poder acceder a la votación!
+            </div>
+        </div>
+        <div class="container-fluid">
             <!-- Modal -->
             <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="registerModalLabel">Register</h5>
+                            <h5 class="modal-title" id="registerModalLabel">Login</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -98,6 +106,7 @@
 
         <!-- Voting -->
         <div v-if="!signup">
+            <h1>[[ voting.id ]] - [[ voting.name ]]</h1>
             <h2>[[ voting.question.desc ]]</h2>
             <form v-for="opt in voting.question.options" :key="opt.number">
                 <div class="form-group">
