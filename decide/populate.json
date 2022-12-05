@@ -36,19 +36,39 @@
         }
     },
     {
-        "model": "authtoken.token",
-        "pk": "6320fb55e98dfa13acec16d63dc907b29e8c06b5",
+        "model": "auth.user",
+        "pk": 3,
         "fields": {
-            "user": 1,
-            "created": "2022-12-05T16:54:46.800Z"
+            "password": "pbkdf2_sha256$390000$zlUj34jN8pF8thjns5JkEP$Xq12/nq+bN9TswtrIOtZ0b0ILpKF93xgQPULMS5IUKQ=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "usuario2",
+            "first_name": "",
+            "last_name": "",
+            "email": "usuario2@us.es",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2022-12-05T17:36:15Z",
+            "groups": [],
+            "user_permissions": []
         }
     },
     {
-        "model": "authtoken.token",
-        "pk": "dc5f6593c2a007962296def15b9c5acfbe8d89df",
+        "model": "auth.user",
+        "pk": 4,
         "fields": {
-            "user": 2,
-            "created": "2022-12-05T16:54:15.770Z"
+            "password": "pbkdf2_sha256$390000$GTy0v8epQXqxsBREPYqFTi$lye9MLqogqqO4NV9AKa1HZirDAfias78qY3wspFz17E=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "usuario3",
+            "first_name": "",
+            "last_name": "",
+            "email": "usuario3@us.es",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2022-12-05T17:37:11Z",
+            "groups": [],
+            "user_permissions": []
         }
     },
     {
@@ -91,6 +111,36 @@
         }
     },
     {
+        "model": "base.key",
+        "pk": 4,
+        "fields": {
+            "p": 98243201412911698972603992897386042105177539556172061978332951587709236339147,
+            "g": 43275361860011226358251183880523624115062355141918701877109993217308974473260,
+            "y": 55890678337865339826841839119843508548195970732238494503564396313665709131152,
+            "x": 1653211098643486635546378435533232512710501241071807966962280695213199255750
+        }
+    },
+    {
+        "model": "base.key",
+        "pk": 5,
+        "fields": {
+            "p": 98243201412911698972603992897386042105177539556172061978332951587709236339147,
+            "g": 43275361860011226358251183880523624115062355141918701877109993217308974473260,
+            "y": 55890678337865339826841839119843508548195970732238494503564396313665709131152,
+            "x": 0
+        }
+    },
+    {
+        "model": "base.key",
+        "pk": 6,
+        "fields": {
+            "p": 98243201412911698972603992897386042105177539556172061978332951587709236339147,
+            "g": 43275361860011226358251183880523624115062355141918701877109993217308974473260,
+            "y": 55890678337865339826841839119843508548195970732238494503564396313665709131152,
+            "x": 0
+        }
+    },
+    {
         "model": "census.census",
         "pk": 1,
         "fields": {
@@ -107,6 +157,30 @@
         }
     },
     {
+        "model": "census.census",
+        "pk": 3,
+        "fields": {
+            "voting_id": 2,
+            "voter_id": 2
+        }
+    },
+    {
+        "model": "census.census",
+        "pk": 4,
+        "fields": {
+            "voting_id": 2,
+            "voter_id": 3
+        }
+    },
+    {
+        "model": "census.census",
+        "pk": 5,
+        "fields": {
+            "voting_id": 2,
+            "voter_id": 4
+        }
+    },
+    {
         "model": "mixnet.mixnet",
         "pk": 1,
         "fields": {
@@ -114,6 +188,19 @@
             "auth_position": 0,
             "key": 1,
             "pubkey": 2,
+            "auths": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "mixnet.mixnet",
+        "pk": 2,
+        "fields": {
+            "voting_id": 2,
+            "auth_position": 0,
+            "key": 4,
+            "pubkey": 5,
             "auths": [
                 1
             ]
@@ -139,6 +226,17 @@
             "a": 87888882234667164738578069131969758903291075080869139979741816145660285281368,
             "b": 73472716662728168145894394350551157571572661852473137154656883892758069415177,
             "voted": "2022-12-05T16:54:25.288Z"
+        }
+    },
+    {
+        "model": "store.vote",
+        "pk": 3,
+        "fields": {
+            "voting_id": 2,
+            "voter_id": 3,
+            "a": 69088252336401053993390820381906007104975250233782275241220593284696983602419,
+            "b": 52716768155559180121306184431860940242828081210732825604528334680523087589244,
+            "voted": "2022-12-05T17:41:20.811Z"
         }
     },
     {
@@ -194,6 +292,40 @@
                     "postproc": 0
                 }
             ],
+            "auths": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "voting.voting",
+        "pk": 2,
+        "fields": {
+            "name": "Votación abierta",
+            "desc": "Esta es la descripción de una votación abierta",
+            "question": 1,
+            "start_date": "2022-12-05T17:38:31.014Z",
+            "end_date": null,
+            "pub_key": 6,
+            "tally": null,
+            "postproc": null,
+            "auths": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "voting.voting",
+        "pk": 3,
+        "fields": {
+            "name": "Votación creada",
+            "desc": "Esta es la descripción de una votación creada (no abierta)",
+            "question": 1,
+            "start_date": null,
+            "end_date": null,
+            "pub_key": null,
+            "tally": null,
+            "postproc": null,
             "auths": [
                 1
             ]
