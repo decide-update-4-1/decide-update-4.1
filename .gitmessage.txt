@@ -1,4 +1,4 @@
-tipo: asunto
+tipo: asunto #id
 
 cuerpo
 

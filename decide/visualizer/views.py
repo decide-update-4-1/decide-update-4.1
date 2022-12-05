@@ -14,7 +14,7 @@ class VisualizerView(TemplateView):
         vid = kwargs.get('voting_id', 0)
 
         try:
-            r = mods.get('voting', pathvariable={'id': vid})
+            r = mods.get('voting', params={'id': vid})
             context['voting'] = json.dumps(r[0])
         except:
             raise Http404
