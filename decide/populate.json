@@ -1,0 +1,202 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$390000$5Vs4Wxo6xExNepVJ7vEH6o$ic8ndYcgdVI1JYfqtf73mnnu6oORvKZXreZ6aEhQgCU=",
+            "last_login": "2022-12-05T16:54:46.872Z",
+            "is_superuser": true,
+            "username": "admin",
+            "first_name": "",
+            "last_name": "",
+            "email": "admin@us.es",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2022-12-05T16:46:52.327Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "password": "pbkdf2_sha256$390000$TRyhDgLJhi472nqRgqkP1g$pa0AWuS2M0l+Zw8BWLp3DyYsS2ePbrYD5Ic2l7lffgA=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "usuario1",
+            "first_name": "",
+            "last_name": "",
+            "email": "usuario1@us.es",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2022-12-05T16:51:28.355Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "authtoken.token",
+        "pk": "6320fb55e98dfa13acec16d63dc907b29e8c06b5",
+        "fields": {
+            "user": 1,
+            "created": "2022-12-05T16:54:46.800Z"
+        }
+    },
+    {
+        "model": "authtoken.token",
+        "pk": "dc5f6593c2a007962296def15b9c5acfbe8d89df",
+        "fields": {
+            "user": 2,
+            "created": "2022-12-05T16:54:15.770Z"
+        }
+    },
+    {
+        "model": "base.auth",
+        "pk": 1,
+        "fields": {
+            "name": "http://localhost:8000",
+            "url": "http://localhost:8000",
+            "me": true
+        }
+    },
+    {
+        "model": "base.key",
+        "pk": 1,
+        "fields": {
+            "p": 109883471017864569645918015172159067242360269802667253011156810127807785366867,
+            "g": 24776979955957295205204151261134357034690028706661542118198014802831892169370,
+            "y": 32637752614663619239037090432850502343289685882448407844371052786557241027433,
+            "x": 8619689454571113869222063423322343544377868178573541609333922892928933117760
+        }
+    },
+    {
+        "model": "base.key",
+        "pk": 2,
+        "fields": {
+            "p": 109883471017864569645918015172159067242360269802667253011156810127807785366867,
+            "g": 24776979955957295205204151261134357034690028706661542118198014802831892169370,
+            "y": 32637752614663619239037090432850502343289685882448407844371052786557241027433,
+            "x": 0
+        }
+    },
+    {
+        "model": "base.key",
+        "pk": 3,
+        "fields": {
+            "p": 109883471017864569645918015172159067242360269802667253011156810127807785366867,
+            "g": 24776979955957295205204151261134357034690028706661542118198014802831892169370,
+            "y": 32637752614663619239037090432850502343289685882448407844371052786557241027433,
+            "x": 0
+        }
+    },
+    {
+        "model": "census.census",
+        "pk": 1,
+        "fields": {
+            "voting_id": 1,
+            "voter_id": 1
+        }
+    },
+    {
+        "model": "census.census",
+        "pk": 2,
+        "fields": {
+            "voting_id": 1,
+            "voter_id": 2
+        }
+    },
+    {
+        "model": "mixnet.mixnet",
+        "pk": 1,
+        "fields": {
+            "voting_id": 1,
+            "auth_position": 0,
+            "key": 1,
+            "pubkey": 2,
+            "auths": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "store.vote",
+        "pk": 1,
+        "fields": {
+            "voting_id": 1,
+            "voter_id": 1,
+            "a": 63609216536759901883541894431562835922923548875978047046133664201965024234070,
+            "b": 21967688903940695487820355618666519880558108913678774267402000410057120920087,
+            "voted": "2022-12-05T16:53:49.831Z"
+        }
+    },
+    {
+        "model": "store.vote",
+        "pk": 2,
+        "fields": {
+            "voting_id": 1,
+            "voter_id": 2,
+            "a": 87888882234667164738578069131969758903291075080869139979741816145660285281368,
+            "b": 73472716662728168145894394350551157571572661852473137154656883892758069415177,
+            "voted": "2022-12-05T16:54:25.288Z"
+        }
+    },
+    {
+        "model": "voting.question",
+        "pk": 1,
+        "fields": {
+            "desc": "¿Es esto una votación correcta?"
+        }
+    },
+    {
+        "model": "voting.questionoption",
+        "pk": 1,
+        "fields": {
+            "question": 1,
+            "number": 1,
+            "option": "Sí"
+        }
+    },
+    {
+        "model": "voting.questionoption",
+        "pk": 2,
+        "fields": {
+            "question": 1,
+            "number": 2,
+            "option": "No"
+        }
+    },
+    {
+        "model": "voting.voting",
+        "pk": 1,
+        "fields": {
+            "name": "Votación cerrada",
+            "desc": "Esta es la descripción de la votación cerrada",
+            "question": 1,
+            "start_date": "2022-12-05T16:50:39.644Z",
+            "end_date": "2022-12-05T16:54:59.111Z",
+            "pub_key": 3,
+            "tally": [
+                1,
+                1
+            ],
+            "postproc": [
+                {
+                    "votes": 2,
+                    "number": 1,
+                    "option": "Sí",
+                    "postproc": 2
+                },
+                {
+                    "votes": 0,
+                    "number": 2,
+                    "option": "No",
+                    "postproc": 0
+                }
+            ],
+            "auths": [
+                1
+            ]
+        }
+    }
+]
