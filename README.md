@@ -312,7 +312,7 @@ Se ha creado un usuario staff con las credenciales:
 * Usuario: admin
 * Contraseña: admin
 
-Por otra parte, el resto de usuarios (4 restantes) siguen la siguiente secuencia:
+Por otra parte, el resto de usuarios (3 restantes) siguen la siguiente secuencia:
 
 * Usuario: usuario#
 * Contraseña: practica#
