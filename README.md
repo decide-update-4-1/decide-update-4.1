@@ -317,7 +317,7 @@ Por otra parte, el resto de usuarios (4 restantes) siguen la siguiente secuencia
 * Usuario: usuario#
 * Contraseña: practica#
 
-donde # es la sucesión desde el valor 1 hasta el 4.
+donde # es la sucesión desde el valor 1 hasta el 3.
 
 En cuanto a las votaciones, se ha creado una votación cerrada con su correspondiente conteo,
 una votación abierta con la que podemos interactuar y una votación que no se ha iniciado,
