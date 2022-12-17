@@ -4,11 +4,13 @@ services:
   db:
     restart: always
     container_name: decide_db
-    image: postgres:alpine
+    image: postgres:11.18-bullseye
     volumes:
       - db:/var/lib/postgresql/data
     networks:
       - decide
+    environment:
+      - POSTGRES_PASSWORD=
   web:
     restart: always
     container_name: decide_web
