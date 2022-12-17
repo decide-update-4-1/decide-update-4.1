@@ -305,13 +305,30 @@ Para borrar posibles datos en base de datos generados por el usuario, se recomie
 
 Tras esto, poblamos la base de datos con datos iniciales de la siguiente manera:
 
-    ./migrate.py loaddata populate.json
+    ./manage.py loaddata populate.json
+
+Se ha creado un usuario staff con las credenciales:
+
+* Usuario: admin
+* Contraseña: admin
+
+Por otra parte, el resto de usuarios (4 restantes) siguen la siguiente secuencia:
+
+* Usuario: usuario#
+* Contraseña: practica#
+
+donde # es la sucesión desde el valor 1 hasta el 4.
+
+En cuanto a las votaciones, se ha creado una votación cerrada con su correspondiente conteo,
+una votación abierta con la que podemos interactuar y una votación que no se ha iniciado,
+cubriendo así todas las posibilidades.
+Si se quieren añadir más casuística a la carga inicial, basta con editar el "populate.json" siguiendo 
+la misma estructura que los datos contenidos en el mismo.
+
 
 Cabe añadir que previo a ejecutar ambos comandos, deberemos haber activado nuestro entorno de 
 Python 3.9.
 
-Si se quieren añadir más casuística a la carga inicial, basta con editar el "populate.json" siguiendo 
-la misma estructura que los datos contenidos en el mismo.
 
 El archivo "populate.json" se ha generado manualmente con ayuda de la documentación encontrada en
 [el siguiente portal web](https://docs.djangoproject.com/en/4.1/howto/initial-data/).
