@@ -46,3 +46,11 @@ Aclarar también que hubo pequeñas reuniones presenciales casi todos los martes
 1. Resumen de cómo va el proyecto
 2. Feedback del M2
 3. Reparto de tareas
+# Acta de la Reunión 4
+
+* Miembros: Todos los integrantes del grupo.
+### Puntos a tratar: <br>
+1. Repasar documentación
+2. Investigar implementación de docker
+3. Repaso del README
+4. Repaso de tests
