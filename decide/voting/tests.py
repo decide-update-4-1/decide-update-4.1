@@ -217,7 +217,7 @@ class VotingTestCase(BaseTestCase):
         self.assertEqual(response.status_code, 400)
         self.assertEqual(response.json(), 'Voting already tallied')
 
-class LogInTests(StaticLiveServerTestCase):
+class LogInSuccessTests(StaticLiveServerTestCase):
 
     def setUp(self):
         #Load base test functionality for decide
@@ -246,8 +246,54 @@ class LogInTests(StaticLiveServerTestCase):
         self.cleaner.find_element(By.ID, "id_password").click()
         self.cleaner.find_element(By.ID, "id_password").send_keys("decide")
 
-        self.cleaner.find_element_by_xpath('/html/body/div/div[2]/div/div[1]/div/form/div[3]/input').click()
+        self.cleaner.find_element(By.ID, "id_password").send_keys("Keys.ENTER")
         self.assertTrue(self.cleaner.current_url == self.live_server_url+"/admin/")
 
         print("se esta ejecutando")
 
+class LogInErrorTests(StaticLiveServerTestCase):
+
+    def setUp(self):
+        #Load base test functionality for decide
+        self.base = BaseTestCase()
+        self.base.setUp()
+
+        options = webdriver.ChromeOptions()
+        options.headless = True
+        self.driver = webdriver.Chrome(options=options)
+
+        super().setUp()
+
+    def tearDown(self):
+        super().tearDown()
+        self.driver.quit()
+
+        self.base.tearDown()
+
+    def usernameWrongLogIn(self):
+        self.cleaner.set_window_size(1280, 720)
+        self.cleaner.get(self.live_server_url+"/admin/login/?next=/admin/")
+
+        self.cleaner.find_element(By.ID, "id_username").click()
+        self.cleaner.find_element(By.ID, "id_username").send_keys("usuarioNoExistente")
+
+        self.cleaner.find_element(By.ID, "id_password").click()
+        self.cleaner.find_element(By.ID, "id_password").send_keys("usuarioNoExistente")
+
+        self.cleaner.find_element(By.ID, "id_password").send_keys("Keys.ENTER")
+
+        self.assertTrue(self.cleaner.find_element_by_xpath('/html/body/div/div[2]/div/div[1]/p').text == 'Please enter the correct username and password for a staff account. Note that both fields may be case-sensitive.')
+
+    def passwordWrongLogIn(self):
+        self.cleaner.set_window_size(1280, 720)
+        self.cleaner.get(self.live_server_url+"/admin/login/?next=/admin/")
+
+        self.cleaner.find_element(By.ID, "id_username").click()
+        self.cleaner.find_element(By.ID, "id_username").send_keys("decide")
+
+        self.cleaner.find_element(By.ID, "id_password").click()
+        self.cleaner.find_element(By.ID, "id_password").send_keys("wrongPassword")
+
+        self.cleaner.find_element(By.ID, "id_password").send_keys("Keys.ENTER")
+
+        self.assertTrue(self.cleaner.find_element_by_xpath('/html/body/div/div[2]/div/div[1]/p').text == 'Please enter the correct username and password for a staff account. Note that both fields may be case-sensitive.')
