@@ -16,7 +16,6 @@ class BoothView(TemplateView):
 
         try:
             r = mods.get('voting', params={'id': vid})
-
             # Casting numbers to string to manage in javascript with BigInt
             # and avoid problems with js and big number conversion
             for k, v in r[0]['pub_key'].items():
