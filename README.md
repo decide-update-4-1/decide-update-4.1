@@ -332,3 +332,24 @@ Python 3.9.
 
 El archivo "populate.json" se ha generado manualmente con ayuda de la documentación encontrada en
 [el siguiente portal web](https://docs.djangoproject.com/en/4.1/howto/initial-data/).
+
+Versiones actuales
+------------------
+
+En las ultimas actualizaciones se han modificado las versiones usadas por la aplicación Decide. Las 
+versiones usadas actualmente se corresponden a las siguientes:
+
+* Django = 4.1
+* pycryptodome = 3.15.0
+* djangorestframework = 3.14.0
+* django-cors-headers = 3.13.0
+* requests = 2.28.1
+* django-filter = 22.1
+* psycopg2 = 2.9.4
+* coverage = 6.5.0
+* jsonnet = 0.18.0
+* django-nose = 1.4.6
+* django-rest-swagger = 2.2.0
+* Python = 3.9
+* Vue=3
+* Bootstrap=5.2
