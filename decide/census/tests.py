@@ -119,7 +119,7 @@ class CensusTest(StaticLiveServerTestCase):
         self.cleaner.find_element(By.ID, "id_voting_id").send_keys(now.strftime("%m%d%M%S"))
         self.cleaner.find_element(By.ID, "id_voter_id").click()
         self.cleaner.find_element(By.ID, "id_voter_id").send_keys(now.strftime("%m%d%M%S"))
-        self.cleaner.find_element(By.NAME, "_name").click()
+        self.cleaner.find_element(By.NAME, "_save").click()
 
         self.assertTrue(self.cleaner.current_url == self.live_server_url+"/admin/census/census")
 
@@ -137,7 +137,7 @@ class CensusTest(StaticLiveServerTestCase):
 
         self.cleaner.get(self.live_server_url+"/admin/census/census/add")
 
-        self.cleaner.find_element(By.NAME, "_name").click()
+        self.cleaner.find_element(By.NAME, "_save").click()
 
         self.assertTrue(self.cleaner.find_element_by_xpath('/html/body/div/div[3]/div/div[1]/div/form/div/p').text == 'Please correct the errors below.')
         self.assertTrue(self.cleaner.current_url == self.live_server_url+"/admin/census/census/add")
@@ -160,7 +160,7 @@ class CensusTest(StaticLiveServerTestCase):
         self.cleaner.find_element(By.ID, "id_voting_id").send_keys('64654654654654')
         self.cleaner.find_element(By.ID, "id_voter_id").click()
         self.cleaner.find_element(By.ID, "id_voter_id").send_keys('64654654654654')
-        self.cleaner.find_element(By.NAME, "_name").click()
+        self.cleaner.find_element(By.NAME, "_save").click()
 
         self.assertTrue(self.cleaner.find_element_by_xpath('/html/body/div/div[3]/div/div[1]/div/form/div/p').text == 'Please correct the errors below.')
         self.assertTrue(self.cleaner.current_url == self.live_server_url+"/admin/census/census/add")
