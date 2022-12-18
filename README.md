@@ -86,13 +86,13 @@ siguiente manera:
 Tests
 -------------------
 
-Una vez configurado postgres y ejecutado el migrate. Podemos hacer el test coverage.
+Una vez configurado postgres y ejecutado el migrate.
 
 Para ejecutar todos los tests disponibles
 
     $./manage.py test
 
-Para ejecutar los tests dentro de “voting”, por ejemplo
+Para ejecutar los tests dentro de un apartado como “voting”, por ejemplo
 
     $./manage.py test voting
 
