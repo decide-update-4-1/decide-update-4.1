@@ -64,13 +64,14 @@ class Voting(models.Model):
         votes_format = []
         vote_list = []
         for vote in votes:
-            for info in vote:
-                if info == 'a':
-                    votes_format.append(vote[info])
-                if info == 'b':
-                    votes_format.append(vote[info])
+            for key, value in vote.items():
+                if key == 'a':
+                    votes_format.append(value)
+                if key == 'b':
+                    votes_format.append(value)
             vote_list.append(votes_format)
             votes_format = []
+            print(vote_list)
         return vote_list
 
     def tally_votes(self, token=''):
