@@ -66,9 +66,10 @@ class Voting(models.Model):
         vote_list = []
         for vote in votes:
             try:
-                vote_json = json.loads(vote)
+                vote_json = dict(vote)
             except:
                 vote_json = vote
+                
             for key, value in vote_json.items():
                 if key == 'a':
                     votes_format.append(value)
