@@ -72,10 +72,75 @@ base de datos que utilizaremos:
 
     ./manage.py migrate
 
+Creamos el superusuario, que será el administrador del sistema. Con este usuario podremos tener acceso 
+a todas las funcionalidades ofrecidas por Decide, como por ejemplo crear usuarios. El comando es el 
+siguiente:
+
+    ./manage.py createsuperuser
+
 Por último, ya podremos ejecutar el módulos o módulos seleccionados en la configuración de la
 siguiente manera:
 
     ./manage.py runserver
+
+Guía rápida
+-------------------
+
+Aclaración: En esta guía vamos a usar como url de base: "localhost:8000".
+
+1. Login como administrador del sistema
+
+Una vez iniciada la aplicación, accedemos a http://localhost:8000/admin/ e ingresamos las credenciales 
+del super usuario creado anteriormente.
+
+[foto 1: login admin]
+
+2. Creación de questions
+
+Buscamos el botón "add" dentro del apartado "questions" de la categoría "voting". En el textarea 
+etiquetado como "Desc" se añade la pregunta a realizar en la futura votación. Después en los
+apartados de "question options" añadimos todas las posibles respuestas a la pregunta definida 
+anteriormente. Estas "questions options" se pueden eliminar clickando a la "X" situada a la derecha y
+se pueden añadir mas opciones pulsando en "add questions options" situado mas abajo. 
+
+No es necesario rellenar todas las "question options" que aparezcan en la vista. Una vez tengamos 
+todas las posibles respuestas que deseamos podemos guardar haciendo click en el botón "Save".
+
+[Foto 2: pantallazo questions]
+
+3. Creación de votings
+
+Hacemos click al botón "add" dentro de "Votings" en la categoría "Voting" y nos aparecerá el formulario
+de creacion de votaciones.
+
+En dicho formulario le ponemos un nombre a la votación, la descripción es opcional, en el desplegable
+"question" nos debe aparecer la pregunta generada en el apartado anterior de esta guía y la 
+seleccionamos. 
+
+[foto 3: pantallazo votings]
+
+En el apartado "Auths" de su primera votación deberá crear uno. Para ello, debe clickar en el "+" a la 
+derecha de la lista de "Auths". Aparecerá una ventana nueva donde deberá rellenar un formulario con el
+nombre que desee y la url, en nuestro caso es "http://localhost:8000".
+
+[Foto 4: auth]
+
+Pulsamos en el botón "Save" y ya tenemos nuestra votación creada.
+
+4. Creacion de census
+
+En "votings" buscamos la votación que hemos generado y entramos en ella para mirar en la barra de 
+direcciones la id de nuestra votación. En el siguiente ejemplo, la id es 19.
+
+    http://localhost:8000/admin/voting/voting/19/change/
+
+Nos dirigimos al apartado "censuss" en la categoría "census" y clickamos en "add". Ponemos la id de 
+nuestra votacion en "voting id" y en "voter id" ponemos la id del votante que queremos añadir. 
+
+NOTA: el administrador si es el primer usuario creado tendrá la id 1.
+
+[Foto 5: census]
+
 
 Ejecutar con docker
 -------------------
