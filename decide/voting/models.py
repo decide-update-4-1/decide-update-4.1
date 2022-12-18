@@ -1,3 +1,4 @@
+import json
 from django.db import models
 from django.db.models import JSONField
 from django.db.models.signals import post_save
@@ -64,7 +65,11 @@ class Voting(models.Model):
         votes_format = []
         vote_list = []
         for vote in votes:
-            for key, value in vote.items():
+            try:
+                vote_json = json.loads(vote)
+            except:
+                vote_json = vote
+            for key, value in vote_json.items():
                 if key == 'a':
                     votes_format.append(value)
                 if key == 'b':
