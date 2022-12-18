@@ -57,7 +57,7 @@
     </div>
 
     <div class="alert alert-danger d-flex align-items-center" role="alert" :variant="alertLvl" dismissible v-if="!successVote && alertShow">
-        <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+        <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Failure:"><use xlink:href="#exclamation-triangle-fill"/></svg>
         <div>
             [[ alertMsg ]]
         </div>
@@ -228,6 +228,7 @@
                             document.cookie = 'decide='+data.token+';';
                             this.token = data.token;
                             this.getUser();
+                            this.alertShow = false;
                         })
                         .catch(error => {
                             this.showAlert("danger", '{% trans "Error: " %}' + error);
@@ -239,6 +240,7 @@
                         .then(data => {
                             this.user = data;
                             this.signup = false;
+                            this.alertShow = false;
                         }).catch(error => {
                             this.showAlert("danger", '{% trans "Error: " %}' + error);
                         });
@@ -249,8 +251,10 @@
                     this.postData("{% url "gateway" "authentication" "/logout/" %}", data);
                     this.token = null;
                     this.user = null;
+                    this.alertShow = false;
                     document.cookie = 'decide=;';
                     this.signup = true;
+                    this.successVote = false;
                 },
                 decideEncrypt() {
                     var bigmsg = BigInt.fromJSONObject(this.selected.toString());
@@ -269,6 +273,7 @@
                     this.postData("{% url "gateway" "store" "/" %}", data)
                         .then(data => {
                             this.successVote = true;
+                            this.alertShow = false;
                             this.showAlert("success", '{% trans "Conglatulations. Your vote has been sent" %}');
                         })
                         .catch(error => {
