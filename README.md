@@ -93,7 +93,11 @@ Aclaración: En esta guía vamos a usar como url de base: "localhost:8000".
 Una vez iniciada la aplicación, accedemos a http://localhost:8000/admin/ e ingresamos las credenciales 
 del super usuario creado anteriormente.
 
-[foto 1: login admin]
+![Imagen 01: login](./resources/quickstart/00_login.png)
+
+Si nos hemos conectado con éxito como un administrador, nos debería aparecer la siguiente vista:
+
+![Imagen 02: menu](./resources/quickstart/01_menu.png)
 
 ### 2. Creación de questions
 
@@ -106,7 +110,7 @@ se pueden añadir mas opciones pulsando en "add questions options" situado mas a
 No es necesario rellenar todas las "question options" que aparezcan en la vista. Una vez tengamos 
 todas las posibles respuestas que deseamos podemos guardar haciendo click en el botón "Save".
 
-[Foto 2: pantallazo questions]
+![Imagen 03: questions](./resources/quickstart/02_question.png)
 
 ### 3. Creación de votings
 
@@ -117,13 +121,13 @@ En dicho formulario le ponemos un nombre a la votación, la descripción es opci
 "question" nos debe aparecer la pregunta generada en el apartado anterior de esta guía y la 
 seleccionamos. 
 
-[foto 3: pantallazo votings]
+![Imagen 04: voting](./resources/quickstart/03_voting.png)
 
 En el apartado "Auths" de su primera votación deberá crear uno. Para ello, debe clickar en el "+" a la 
 derecha de la lista de "Auths". Aparecerá una ventana nueva donde deberá rellenar un formulario con el
 nombre que desee y la url, en nuestro caso es "http://localhost:8000".
 
-[Foto 4: auth]
+![Imagen 05: auth](./resources/quickstart/04_auth.png)
 
 Pulsamos en el botón "Save" y ya tenemos nuestra votación creada.
 
@@ -139,7 +143,7 @@ nuestra votacion en "voting id" y en "voter id" ponemos la id del votante que qu
 
 NOTA: el administrador si es el primer usuario creado tendrá la id 1.
 
-[Foto 5: census]
+![Imagen 06: census](./resources/quickstart/05_census.png)
 
 ### 5. Comenzar la votación
 
