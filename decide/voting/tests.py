@@ -3,16 +3,17 @@ import itertools
 from django.utils import timezone
 from django.conf import settings
 from django.contrib.auth.models import User
-from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.test import TestCase
 from rest_framework.test import APIClient
 from rest_framework.test import APITestCase
 
 from selenium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 from base import mods
 from base.tests import BaseTestCase
@@ -217,26 +218,17 @@ class VotingTestCase(BaseTestCase):
         self.assertEqual(response.status_code, 400)
         self.assertEqual(response.json(), 'Voting already tallied')
 
-class LogInSuccessTests(StaticLiveServerTestCase):
+class LogInSuccessTests():
 
-    def setUp(self):
+    def __init__(self):
         #Load base test functionality for decide
-        self.base = BaseTestCase()
-        self.base.setUp()
+        self.drive = webdriver.Chrome()
+        self.vars = {}
 
-        options = webdriver.ChromeOptions()
-        options.headless = True
-        self.driver = webdriver.Chrome(options=options)
-
-        super().setUp()
-
-    def tearDown(self):
-        super().tearDown()
+    def teardown_method(self):
         self.driver.quit()
 
-        self.base.tearDown()
-
-    def successLogIn(self):
+    def success_login(self):
         self.cleaner.get(self.live_server_url+"/admin/login/?next=/admin/")
         self.cleaner.set_window_size(1280, 720)
 
@@ -249,26 +241,17 @@ class LogInSuccessTests(StaticLiveServerTestCase):
         self.cleaner.find_element(By.ID, "id_password").send_keys("Keys.ENTER")
         self.assertTrue(self.cleaner.current_url == self.live_server_url+"/admin/")
 
-class LogInErrorTests(StaticLiveServerTestCase):
+class LogInErrorTests():
 
-    def setUp(self):
+    def __init__(self):
         #Load base test functionality for decide
-        self.base = BaseTestCase()
-        self.base.setUp()
+        self.drive = webdriver.Chrome()
+        self.vars = {}
 
-        options = webdriver.ChromeOptions()
-        options.headless = True
-        self.driver = webdriver.Chrome(options=options)
-
-        super().setUp()
-
-    def tearDown(self):
-        super().tearDown()
+    def teardown_method(self):
         self.driver.quit()
 
-        self.base.tearDown()
-
-    def usernameWrongLogIn(self):
+    def username_wrong_login(self):
         self.cleaner.get(self.live_server_url+"/admin/login/?next=/admin/")
         self.cleaner.set_window_size(1280, 720)
         
@@ -282,7 +265,7 @@ class LogInErrorTests(StaticLiveServerTestCase):
 
         self.assertTrue(self.cleaner.find_element_by_xpath('/html/body/div/div[2]/div/div[1]/p').text == 'Please enter the correct username and password for a staff account. Note that both fields may be case-sensitive.')
 
-    def passwordWrongLogIn(self):
+    def password_wrong_login(self):
         self.cleaner.get(self.live_server_url+"/admin/login/?next=/admin/")
         self.cleaner.set_window_size(1280, 720)
 
@@ -296,27 +279,18 @@ class LogInErrorTests(StaticLiveServerTestCase):
 
         self.assertTrue(self.cleaner.find_element_by_xpath('/html/body/div/div[2]/div/div[1]/p').text == 'Please enter the correct username and password for a staff account. Note that both fields may be case-sensitive.')
 
-class QuestionsTests(StaticLiveServerTestCase):
+class QuestionsTests():
 
-    def setUp(self):
+    def __init__(self):
         #Load base test functionality for decide
-        self.base = BaseTestCase()
-        self.base.setUp()
+        self.drive = webdriver.Chrome()
+        self.vars = {}
 
-        options = webdriver.ChromeOptions()
-        options.headless = True
-        self.driver = webdriver.Chrome(options=options)
-
-        super().setUp()
-
-    def tearDown(self):
-        super().tearDown()
+    def teardown_method(self):
         self.driver.quit()
 
-        self.base.tearDown()
-
-    def createQuestionSuccess(self):
-        self.cleaner.get(self.live_server_url+"/admin/login/?next=/admin/")
+    def create_question_success(self):
+        self.cleaner.get("http://localhost:8000/admin/login/?next=/admin/")
         self.cleaner.set_window_size(1280, 720)
 
         self.cleaner.find_element(By.ID, "id_username").click()
@@ -343,7 +317,7 @@ class QuestionsTests(StaticLiveServerTestCase):
 
         self.assertTrue(self.cleaner.current_url == self.live_server_url+"/admin/voting/question/")
 
-    def createCensusEmptyError(self):
+    def create_census_empty_error(self):
         self.cleaner.get(self.live_server_url+"/admin/login/?next=/admin/")
         self.cleaner.set_window_size(1280, 720)
 
