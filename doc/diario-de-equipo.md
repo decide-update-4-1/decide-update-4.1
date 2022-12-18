@@ -17,8 +17,8 @@
 
 # Resumen
 
-* Total de reuniones: 3, todas virtuales
-* Total de tiempo estimado: 15 horas aproximadamente<br>
+* Total de reuniones: 5, todas virtuales
+* Total de tiempo estimado: 35 horas aproximadamente<br>
 
 Aclarar también que hubo pequeñas reuniones presenciales casi todos los martes y jueves, después de clase de EGC, de manera informal para informar de los avances de la investigación, aclarar dudas y proponer ideas. Dichas reuniones no quedaron registradas.
 
@@ -63,3 +63,4 @@ Aclarar también que hubo pequeñas reuniones presenciales casi todos los martes
 1. Mejora documentación del README 
 2. Investigar implementación de docker
 3. Investigar implementación de Vagrant
+4. Realización del vídeo para el M3
