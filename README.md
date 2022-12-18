@@ -83,6 +83,19 @@ siguiente manera:
 
     ./manage.py runserver
 
+Tests
+-------------------
+
+Una vez configurado postgres y ejecutado el migrate. Podemos hacer el test coverage.
+
+Para ejecutar todos los tests disponibles
+
+    $./manage.py test
+
+Para ejecutar los tests dentro de “voting”, por ejemplo
+
+    $./manage.py test voting
+
 Guía rápida
 -------------------
 
