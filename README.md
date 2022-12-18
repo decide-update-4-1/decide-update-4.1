@@ -66,6 +66,7 @@ Tras esto tendremos que crearnos nuestra base de datos con postgres:
     sudo su - postgres
     psql -c "create user decide with password 'decide'"
     psql -c "create database decide owner decide"
+    psql -c "ALTER USER decide CREATEDB"
 
 Entramos en la carpeta del proyecto (cd decide) y realizamos la primera migración para preparar la
 base de datos que utilizaremos:
@@ -489,3 +490,4 @@ versiones usadas actualmente se corresponden a las siguientes:
 * Python = 3.9
 * Vue=3
 * Bootstrap=5.2
+* selenium = 4.7.2
