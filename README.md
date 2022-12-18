@@ -290,3 +290,66 @@ A tener en cuenta:
   concurrentes, cuando pongamos más de 100, lo normal es que empiecen a fallar muchas peticiones.
 * Si hacemos las pruebas en local, donde tenemos activado el modo debug de Django, lo normal es que
   las peticiones tarden algo más y consigamos menos RPS (Peticiones por segundo).
+
+Poblar con datos iniciales
+--------------------------
+
+Para probar el correcto funcionamiento de nuestra aplicación de decide, hemos generado una serie de
+datos iniciales. Para ello, hemos elaborado un archivo JSON con datos que Django usa para generar 
+varias votaciones y usuarios de manera automática. Este se ha dotado con el nombre de "populate.json"
+y se ha colocado junto a "manage.py". Lo pasos a seguir son los comentados abajo.
+
+Para borrar posibles datos en base de datos generados por el usuario, se recomienda ejecutar:
+
+    ./manage.py flush
+
+Tras esto, poblamos la base de datos con datos iniciales de la siguiente manera:
+
+    ./manage.py loaddata populate.json
+
+Se ha creado un usuario staff con las credenciales:
+
+* Usuario: admin
+* Contraseña: admin
+
+Por otra parte, el resto de usuarios (3 restantes) siguen la siguiente secuencia:
+
+* Usuario: usuario#
+* Contraseña: practica#
+
+donde # es la sucesión desde el valor 1 hasta el 3.
+
+En cuanto a las votaciones, se ha creado una votación cerrada con su correspondiente conteo,
+una votación abierta con la que podemos interactuar y una votación que no se ha iniciado,
+cubriendo así todas las posibilidades.
+Si se quieren añadir más casuística a la carga inicial, basta con editar el "populate.json" siguiendo 
+la misma estructura que los datos contenidos en el mismo.
+
+
+Cabe añadir que previo a ejecutar ambos comandos, deberemos haber activado nuestro entorno de 
+Python 3.9.
+
+
+El archivo "populate.json" se ha generado manualmente con ayuda de la documentación encontrada en
+[el siguiente portal web](https://docs.djangoproject.com/en/4.1/howto/initial-data/).
+
+Versiones actuales
+------------------
+
+En las ultimas actualizaciones se han modificado las versiones usadas por la aplicación Decide. Las 
+versiones usadas actualmente se corresponden a las siguientes:
+
+* Django = 4.1
+* pycryptodome = 3.15.0
+* djangorestframework = 3.14.0
+* django-cors-headers = 3.13.0
+* requests = 2.28.1
+* django-filter = 22.1
+* psycopg2 = 2.9.4
+* coverage = 6.5.0
+* jsonnet = 0.18.0
+* django-nose = 1.4.6
+* django-rest-swagger = 2.2.0
+* Python = 3.9
+* Vue=3
+* Bootstrap=5.2
