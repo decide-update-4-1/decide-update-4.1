@@ -93,11 +93,11 @@ Aclaración: En esta guía vamos a usar como url de base: "localhost:8000".
 Una vez iniciada la aplicación, accedemos a http://localhost:8000/admin/ e ingresamos las credenciales 
 del super usuario creado anteriormente.
 
-![Imagen 01: login](./resources/quickstart/00_login.png)
+![Imagen 01: Login](./resources/quickstart/00_login.png)
 
 Si nos hemos conectado con éxito como un administrador, nos debería aparecer la siguiente vista:
 
-![Imagen 02: menu](./resources/quickstart/01_menu.png)
+![Imagen 02: Menu](./resources/quickstart/01_menu.png)
 
 ### 2. Creación de questions
 
@@ -110,7 +110,7 @@ se pueden añadir mas opciones pulsando en "add questions options" situado mas a
 No es necesario rellenar todas las "question options" que aparezcan en la vista. Una vez tengamos 
 todas las posibles respuestas que deseamos podemos guardar haciendo click en el botón "Save".
 
-![Imagen 03: questions](./resources/quickstart/02_question.png)
+![Imagen 03: Questions](./resources/quickstart/02_question.png)
 
 ### 3. Creación de votings
 
@@ -121,13 +121,13 @@ En dicho formulario le ponemos un nombre a la votación, la descripción es opci
 "question" nos debe aparecer la pregunta generada en el apartado anterior de esta guía y la 
 seleccionamos. 
 
-![Imagen 04: voting](./resources/quickstart/03_voting.png)
+![Imagen 04: Voting](./resources/quickstart/03_voting.png)
 
 En el apartado "Auths" de su primera votación deberá crear uno. Para ello, debe clickar en el "+" a la 
 derecha de la lista de "Auths". Aparecerá una ventana nueva donde deberá rellenar un formulario con el
 nombre que desee y la url, en nuestro caso es "http://localhost:8000".
 
-![Imagen 05: auth](./resources/quickstart/04_auth.png)
+![Imagen 05: Auth](./resources/quickstart/04_auth.png)
 
 Pulsamos en el botón "Save" y ya tenemos nuestra votación creada.
 
@@ -143,7 +143,7 @@ nuestra votacion en "voting id" y en "voter id" ponemos la id del votante que qu
 
 NOTA: el administrador si es el primer usuario creado tendrá la id 1.
 
-![Imagen 06: census](./resources/quickstart/05_census.png)
+![Imagen 06: Census](./resources/quickstart/05_census.png)
 
 ### 5. Comenzar la votación
 
@@ -152,7 +152,7 @@ izquierda de nuestra votación. Una vez seleccionado, tenemos que ir al desplega
 seleccionamos la opción "Start" y pulsamos en el boton "Go". Esperamos a que aparezca el "Start date" 
 y ya tendríamos la votación abierta y lista para votar. 
 
-[Foto 6: abrir votación]
+![Imagen 07: Start voting](./resources/quickstart/06_start.png)
 
 ### 6. Votar
 
@@ -160,14 +160,14 @@ Para poder votar primero debemos ingresar en la barra de direcciones de nuestro 
 
     http://localhost:8000/booth/[id de la votación]/
 
-[Foto 7: foto del booth]
+![Imagen 08: Booth](./resources/quickstart/07_booth.png)
 
 Una vez accedemos, debemos iniciar sesión con un usuario que esté incluido en el censo.
 
 Cuando nos aparezca la pregunta, ya podemos seleccionar la respuesta y guardarla como un voto. 
 Al confirmar el voto, nos aparecerá lo siguiente:
 
-[Foto 8: foto del voto correcto]
+![Imagen 09: Vote success](./resources/quickstart/08_voted.png)
 
 El mensaje de "Congratulations. Your vote has been sent" nos confirma que nuestro voto ha sido 
 registrado correctamente.
@@ -182,7 +182,7 @@ la fecha actual, esto nos indica que la votación ha sido cerrada y está lista 
 Una vez cerrada la votación, volvemos a seleccionar el checkbox de la izquierda de nuestra votación
 marcamos la opción "Tally" en el desplegable de "Actions" y pulsamos nuevamente en el botón "Go".
 
-[Foto 9: pantallazo con el tally]
+![Imagen 10: Tally](./resources/quickstart/09_tally.png)
 
 ### 8. Visualización de resultado
 
@@ -191,7 +191,7 @@ resultado accediendo a la siguiente url:
 
     http://localhost:8000/visualizer/[id de la votación]/
 
-[Foto 10: visualizer]
+![Imagen 11: Visualizer](./resources/quickstart/10_visualizer.png)
 
 Ejecutar con docker
 -------------------
