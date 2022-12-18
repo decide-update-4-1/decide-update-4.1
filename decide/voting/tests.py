@@ -237,8 +237,8 @@ class LogInSuccessTests(StaticLiveServerTestCase):
         self.base.tearDown()
 
     def successLogIn(self):
-        self.cleaner.set_window_size(1280, 720)
         self.cleaner.get(self.live_server_url+"/admin/login/?next=/admin/")
+        self.cleaner.set_window_size(1280, 720)
 
         self.cleaner.find_element(By.ID, "id_username").click()
         self.cleaner.find_element(By.ID, "id_username").send_keys("decide")
@@ -248,8 +248,6 @@ class LogInSuccessTests(StaticLiveServerTestCase):
 
         self.cleaner.find_element(By.ID, "id_password").send_keys("Keys.ENTER")
         self.assertTrue(self.cleaner.current_url == self.live_server_url+"/admin/")
-
-        print("se esta ejecutando")
 
 class LogInErrorTests(StaticLiveServerTestCase):
 
@@ -271,9 +269,9 @@ class LogInErrorTests(StaticLiveServerTestCase):
         self.base.tearDown()
 
     def usernameWrongLogIn(self):
-        self.cleaner.set_window_size(1280, 720)
         self.cleaner.get(self.live_server_url+"/admin/login/?next=/admin/")
-
+        self.cleaner.set_window_size(1280, 720)
+        
         self.cleaner.find_element(By.ID, "id_username").click()
         self.cleaner.find_element(By.ID, "id_username").send_keys("usuarioNoExistente")
 
@@ -285,8 +283,8 @@ class LogInErrorTests(StaticLiveServerTestCase):
         self.assertTrue(self.cleaner.find_element_by_xpath('/html/body/div/div[2]/div/div[1]/p').text == 'Please enter the correct username and password for a staff account. Note that both fields may be case-sensitive.')
 
     def passwordWrongLogIn(self):
-        self.cleaner.set_window_size(1280, 720)
         self.cleaner.get(self.live_server_url+"/admin/login/?next=/admin/")
+        self.cleaner.set_window_size(1280, 720)
 
         self.cleaner.find_element(By.ID, "id_username").click()
         self.cleaner.find_element(By.ID, "id_username").send_keys("decide")
@@ -318,8 +316,8 @@ class QuestionsTests(StaticLiveServerTestCase):
         self.base.tearDown()
 
     def createQuestionSuccess(self):
-        self.cleaner.set_window_size(1280, 720)
         self.cleaner.get(self.live_server_url+"/admin/login/?next=/admin/")
+        self.cleaner.set_window_size(1280, 720)
 
         self.cleaner.find_element(By.ID, "id_username").click()
         self.cleaner.find_element(By.ID, "id_username").send_keys("decide")
@@ -346,8 +344,8 @@ class QuestionsTests(StaticLiveServerTestCase):
         self.assertTrue(self.cleaner.current_url == self.live_server_url+"/admin/voting/question/")
 
     def createCensusEmptyError(self):
-        self.cleaner.set_window_size(1280, 720)
         self.cleaner.get(self.live_server_url+"/admin/login/?next=/admin/")
+        self.cleaner.set_window_size(1280, 720)
 
         self.cleaner.find_element(By.ID, "id_username").click()
         self.cleaner.find_element(By.ID, "id_username").send_keys("decide")

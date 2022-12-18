@@ -102,8 +102,8 @@ class CensusTest(StaticLiveServerTestCase):
         self.base.tearDown()
     
     def createCensusSuccess(self):
-        self.cleaner.set_window_size(1280, 720)
         self.cleaner.get(self.live_server_url+"/admin/login/?next=/admin/")
+        self.cleaner.set_window_size(1280, 720)
 
         self.cleaner.find_element(By.ID, "id_username").click()
         self.cleaner.find_element(By.ID, "id_username").send_keys("decide")
@@ -124,8 +124,8 @@ class CensusTest(StaticLiveServerTestCase):
         self.assertTrue(self.cleaner.current_url == self.live_server_url+"/admin/census/census")
 
     def createCensusEmptyError(self):
-        self.cleaner.set_window_size(1280, 720)
         self.cleaner.get(self.live_server_url+"/admin/login/?next=/admin/")
+        self.cleaner.set_window_size(1280, 720)
 
         self.cleaner.find_element(By.ID, "id_username").click()
         self.cleaner.find_element(By.ID, "id_username").send_keys("decide")
@@ -143,8 +143,8 @@ class CensusTest(StaticLiveServerTestCase):
         self.assertTrue(self.cleaner.current_url == self.live_server_url+"/admin/census/census/add")
 
     def createCensusValueError(self):
-        self.cleaner.set_window_size(1280, 720)
         self.cleaner.get(self.live_server_url+"/admin/login/?next=/admin/")
+        self.cleaner.set_window_size(1280, 720)
 
         self.cleaner.find_element(By.ID, "id_username").click()
         self.cleaner.find_element(By.ID, "id_username").send_keys("decide")
