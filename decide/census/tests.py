@@ -2,6 +2,7 @@ import random
 from django.contrib.auth.models import User
 from django.test import TestCase
 from rest_framework.test import APIClient
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
@@ -82,7 +83,7 @@ class CensusTestCase(BaseTestCase):
         self.assertEqual(0, Census.objects.count())
 
 
-class CensusTest():
+class CensusTest(StaticLiveServerTestCase):
     def setUp(self):
         #Load base test functionality for decide
         self.base = BaseTestCase()
@@ -137,7 +138,7 @@ class CensusTest():
         self.cleaner.get(self.live_server_url+"/admin/census/census/add")
 
         self.cleaner.find_element(By.NAME, "_name").click()
-        
+
         self.assertTrue(self.cleaner.find_element_by_xpath('/html/body/div/div[3]/div/div[1]/div/form/div/p').text == 'Please correct the errors below.')
         self.assertTrue(self.cleaner.current_url == self.live_server_url+"/admin/census/census/add")
 
