@@ -66,9 +66,15 @@ class Voting(models.Model):
         vote_list = []
         for vote in votes:
             try:
+                print("CASO 1")
                 vote_json = dict(vote)
             except:
-                vote_json = vote
+                try:
+                    print("CASO 2")
+                    vote_json = json.dumps(vote)
+                except:
+                    print("CASO 3")
+                    vote_json = vote
                 
             for key, value in vote_json.items():
                 if key == 'a':
