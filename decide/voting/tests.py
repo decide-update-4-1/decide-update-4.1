@@ -229,17 +229,17 @@ class LogInSuccessTests():
         self.driver.quit()
 
     def success_login(self):
-        self.cleaner.get(self.live_server_url+"/admin/login/?next=/admin/")
-        self.cleaner.set_window_size(1280, 720)
+        self.driver.get(self.live_server_url+"/admin/login/?next=/admin/")
+        self.driver.set_window_size(1280, 720)
 
-        self.cleaner.find_element(By.ID, "id_username").click()
-        self.cleaner.find_element(By.ID, "id_username").send_keys("decide")
+        self.driver.find_element(By.ID, "id_username").click()
+        self.driver.find_element(By.ID, "id_username").send_keys("decide")
 
-        self.cleaner.find_element(By.ID, "id_password").click()
-        self.cleaner.find_element(By.ID, "id_password").send_keys("decide")
+        self.driver.find_element(By.ID, "id_password").click()
+        self.driver.find_element(By.ID, "id_password").send_keys("decide")
 
-        self.cleaner.find_element(By.ID, "id_password").send_keys("Keys.ENTER")
-        self.assertTrue(self.cleaner.current_url == self.live_server_url+"/admin/")
+        self.driver.find_element(By.ID, "id_password").send_keys("Keys.ENTER")
+        self.assertTrue(self.driver.current_url == self.live_server_url+"/admin/")
 
 class LogInErrorTests():
 
@@ -252,32 +252,32 @@ class LogInErrorTests():
         self.driver.quit()
 
     def username_wrong_login(self):
-        self.cleaner.get(self.live_server_url+"/admin/login/?next=/admin/")
-        self.cleaner.set_window_size(1280, 720)
+        self.driver.get(self.live_server_url+"/admin/login/?next=/admin/")
+        self.driver.set_window_size(1280, 720)
         
-        self.cleaner.find_element(By.ID, "id_username").click()
-        self.cleaner.find_element(By.ID, "id_username").send_keys("usuarioNoExistente")
+        self.driver.find_element(By.ID, "id_username").click()
+        self.driver.find_element(By.ID, "id_username").send_keys("usuarioNoExistente")
 
-        self.cleaner.find_element(By.ID, "id_password").click()
-        self.cleaner.find_element(By.ID, "id_password").send_keys("usuarioNoExistente")
+        self.driver.find_element(By.ID, "id_password").click()
+        self.driver.find_element(By.ID, "id_password").send_keys("usuarioNoExistente")
 
-        self.cleaner.find_element(By.ID, "id_password").send_keys("Keys.ENTER")
+        self.driver.find_element(By.ID, "id_password").send_keys("Keys.ENTER")
 
-        self.assertTrue(self.cleaner.find_element_by_xpath('/html/body/div/div[2]/div/div[1]/p').text == 'Please enter the correct username and password for a staff account. Note that both fields may be case-sensitive.')
+        self.assertTrue(self.driver.find_element_by_xpath('/html/body/div/div[2]/div/div[1]/p').text == 'Please enter the correct username and password for a staff account. Note that both fields may be case-sensitive.')
 
     def password_wrong_login(self):
-        self.cleaner.get(self.live_server_url+"/admin/login/?next=/admin/")
-        self.cleaner.set_window_size(1280, 720)
+        self.driver.get(self.live_server_url+"/admin/login/?next=/admin/")
+        self.driver.set_window_size(1280, 720)
 
-        self.cleaner.find_element(By.ID, "id_username").click()
-        self.cleaner.find_element(By.ID, "id_username").send_keys("decide")
+        self.driver.find_element(By.ID, "id_username").click()
+        self.driver.find_element(By.ID, "id_username").send_keys("decide")
 
-        self.cleaner.find_element(By.ID, "id_password").click()
-        self.cleaner.find_element(By.ID, "id_password").send_keys("wrongPassword")
+        self.driver.find_element(By.ID, "id_password").click()
+        self.driver.find_element(By.ID, "id_password").send_keys("wrongPassword")
 
-        self.cleaner.find_element(By.ID, "id_password").send_keys("Keys.ENTER")
+        self.driver.find_element(By.ID, "id_password").send_keys("Keys.ENTER")
 
-        self.assertTrue(self.cleaner.find_element_by_xpath('/html/body/div/div[2]/div/div[1]/p').text == 'Please enter the correct username and password for a staff account. Note that both fields may be case-sensitive.')
+        self.assertTrue(self.driver.find_element_by_xpath('/html/body/div/div[2]/div/div[1]/p').text == 'Please enter the correct username and password for a staff account. Note that both fields may be case-sensitive.')
 
 class QuestionsTests():
 
@@ -290,48 +290,48 @@ class QuestionsTests():
         self.driver.quit()
 
     def create_question_success(self):
-        self.cleaner.get("http://localhost:8000/admin/login/?next=/admin/")
-        self.cleaner.set_window_size(1280, 720)
+        self.driver.get("http://localhost:8000/admin/login/?next=/admin/")
+        self.driver.set_window_size(1280, 720)
 
-        self.cleaner.find_element(By.ID, "id_username").click()
-        self.cleaner.find_element(By.ID, "id_username").send_keys("decide")
+        self.driver.find_element(By.ID, "id_username").click()
+        self.driver.find_element(By.ID, "id_username").send_keys("decide")
 
-        self.cleaner.find_element(By.ID, "id_password").click()
-        self.cleaner.find_element(By.ID, "id_password").send_keys("decide")
+        self.driver.find_element(By.ID, "id_password").click()
+        self.driver.find_element(By.ID, "id_password").send_keys("decide")
 
-        self.cleaner.find_element(By.ID, "id_password").send_keys("Keys.ENTER")
+        self.driver.find_element(By.ID, "id_password").send_keys("Keys.ENTER")
 
-        self.cleaner.get(self.live_server_url+"/admin/voting/question/add/")
+        self.driver.get(self.live_server_url+"/admin/voting/question/add/")
         
-        self.cleaner.find_element(By.ID, "id_desc").click()
-        self.cleaner.find_element(By.ID, "id_desc").send_keys('Test')
-        self.cleaner.find_element(By.ID, "id_options-0-number").click()
-        self.cleaner.find_element(By.ID, "id_options-0-number").send_keys('1')
-        self.cleaner.find_element(By.ID, "id_options-0-option").click()
-        self.cleaner.find_element(By.ID, "id_options-0-option").send_keys('test1')
-        self.cleaner.find_element(By.ID, "id_options-1-number").click()
-        self.cleaner.find_element(By.ID, "id_options-1-number").send_keys('2')
-        self.cleaner.find_element(By.ID, "id_options-1-option").click()
-        self.cleaner.find_element(By.ID, "id_options-1-option").send_keys('test2')
-        self.cleaner.find_element(By.NAME, "_save").click()
+        self.driver.find_element(By.ID, "id_desc").click()
+        self.driver.find_element(By.ID, "id_desc").send_keys('Test')
+        self.driver.find_element(By.ID, "id_options-0-number").click()
+        self.driver.find_element(By.ID, "id_options-0-number").send_keys('1')
+        self.driver.find_element(By.ID, "id_options-0-option").click()
+        self.driver.find_element(By.ID, "id_options-0-option").send_keys('test1')
+        self.driver.find_element(By.ID, "id_options-1-number").click()
+        self.driver.find_element(By.ID, "id_options-1-number").send_keys('2')
+        self.driver.find_element(By.ID, "id_options-1-option").click()
+        self.driver.find_element(By.ID, "id_options-1-option").send_keys('test2')
+        self.driver.find_element(By.NAME, "_save").click()
 
-        self.assertTrue(self.cleaner.current_url == self.live_server_url+"/admin/voting/question/")
+        self.assertTrue(self.driver.current_url == self.live_server_url+"/admin/voting/question/")
 
     def create_census_empty_error(self):
-        self.cleaner.get(self.live_server_url+"/admin/login/?next=/admin/")
-        self.cleaner.set_window_size(1280, 720)
+        self.driver.get(self.live_server_url+"/admin/login/?next=/admin/")
+        self.driver.set_window_size(1280, 720)
 
-        self.cleaner.find_element(By.ID, "id_username").click()
-        self.cleaner.find_element(By.ID, "id_username").send_keys("decide")
+        self.driver.find_element(By.ID, "id_username").click()
+        self.driver.find_element(By.ID, "id_username").send_keys("decide")
 
-        self.cleaner.find_element(By.ID, "id_password").click()
-        self.cleaner.find_element(By.ID, "id_password").send_keys("decide")
+        self.driver.find_element(By.ID, "id_password").click()
+        self.driver.find_element(By.ID, "id_password").send_keys("decide")
 
-        self.cleaner.find_element(By.ID, "id_password").send_keys("Keys.ENTER")
+        self.driver.find_element(By.ID, "id_password").send_keys("Keys.ENTER")
 
-        self.cleaner.get(self.live_server_url+"/admin/voting/question/add/")
+        self.driver.get(self.live_server_url+"/admin/voting/question/add/")
 
-        self.cleaner.find_element(By.NAME, "_save").click()
+        self.driver.find_element(By.NAME, "_save").click()
 
-        self.assertTrue(self.cleaner.find_element_by_xpath('/html/body/div/div[3]/div/div[1]/div/form/div/p').text == 'Please correct the errors below.')
-        self.assertTrue(self.cleaner.current_url == self.live_server_url+"/admin/voting/question/add/")
+        self.assertTrue(self.driver.find_element_by_xpath('/html/body/div/div[3]/div/div[1]/div/form/div/p').text == 'Please correct the errors below.')
+        self.assertTrue(self.driver.current_url == self.live_server_url+"/admin/voting/question/add/")
