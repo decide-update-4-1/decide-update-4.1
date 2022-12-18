@@ -92,9 +92,16 @@ Para ejecutar todos los tests disponibles
 
     $./manage.py test
 
-Para ejecutar los tests dentro de un apartado como “voting”, por ejemplo
+Para ejecutar los tests que pertenecen a una categoria como “voting”, por ejemplo
 
     $./manage.py test voting
+
+Para ver la cobertura del codigo que estos tests prueban, se puede lanzar el siguiente comando:
+
+    coverage run --source . ./manage.py test -v 2
+
+Esto generará un "index.html", que se puede consultar para ver de forma especifica las partes del codigo no testeadas.
+
 
 Guía rápida
 -------------------
