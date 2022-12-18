@@ -76,11 +76,11 @@ class Voting(models.Model):
                     print("CASO 3")
                     vote_json = vote
                 
-            for key, value in vote_json.items():
+            for key in vote_json:
                 if key == 'a':
-                    votes_format.append(value)
+                    votes_format.append(vote_json[key])
                 if key == 'b':
-                    votes_format.append(value)
+                    votes_format.append(vote_json[key])
             vote_list.append(votes_format)
             votes_format = []
             print(vote_list)
